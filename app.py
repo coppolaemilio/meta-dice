@@ -9,10 +9,12 @@ def roll(max):
     <!DOCTYPE html>
     <html>
     <head>
-    <meta name="description" content="{number}"/>
+        <title>Dice</title>
+        <meta charset="utf-8">
+        <meta name="description" content="{number}"/>
     </head>
     <body>
-    <h1>{number}</h1>
+        <h1>{number}</h1>
     </body>
     </html>
     """.format(number=str(number))
