@@ -1,17 +1,22 @@
 from flask import Flask
-from datetime import datetime
+from random import randint
 app = Flask(__name__)
 
-@app.route('/')
-def homepage():
-    the_time = datetime.now().strftime("%A, %d %b %Y %l:%M %p")
+@app.route('/<max>')
+def roll(max):
+    number = randint(1, max)
 
     return """
-    <h1>Hello heroku</h1>
-    <p>It is currently {time}.</p>
-
-    <img src="http://loremflickr.com/600/400" />
-    """.format(time=the_time)
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta name="description" content="{number}"/>
+    </head>
+    <body>
+    <h1>{number}</h1>
+    </body>
+    </html>
+    """.format(number=number)
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
