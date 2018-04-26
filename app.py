@@ -4,8 +4,7 @@ app = Flask(__name__)
 
 @app.route('/<max>')
 def roll(max):
-    number = randint(1, max)
-
+    number = randint(1, int(max))
     return """
     <!DOCTYPE html>
     <html>
@@ -16,7 +15,7 @@ def roll(max):
     <h1>{number}</h1>
     </body>
     </html>
-    """.format(number=number)
+    """.format(number=str(number))
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
