@@ -1,6 +1,10 @@
-from flask import Flask
+import flask
 from random import randint
-app = Flask(__name__)
+app = flask.Flask(__name__)
+
+@app.route('/')
+def index():
+    return flask.redirect('/6')
 
 @app.route('/<max>')
 def roll(max):
